@@ -332,24 +332,24 @@ def page_a2a():
             st.success("✅ Output: Hệ thống Multi-Agent xử lý thành công yêu cầu phức tạp theo quy trình tự động.")
 
 def main():
-    st.sidebar.title("📑 Mục lục Assignment")
+    st.sidebar.title("📑 Menu")
     st.sidebar.markdown("---")
     
     pages = {
-        "🏠 Trang bìa & Tổng quan": page_home,
-        "🔢 1. Thư viện NumPy": page_numpy,
-        "🐼 2. Thư viện Pandas": page_pandas,
-        "📊 3. Trực quan hóa (Matplotlib)": page_visualization,
-        "🧠 4. Học máy (Scikit-Learn)": page_sklearn,
-        "🌐 5. Giao tiếp mạng (Requests)": page_requests,
-        "🔌 6. Nghiên cứu MCP": page_mcp,
-        "🤖 7. Nghiên cứu Multi-Agent": page_a2a
+        "🏠 Tổng quan": page_home,
+        "🔢 1. NumPy": page_numpy,
+        "🐼 2. Pandas": page_pandas,
+        "📊 3. Matplotlib": page_visualization,
+        "🧠 4. Scikit-Learn": page_sklearn,
+        "🌐 5. Requests API": page_requests,
+        "🔌 6. Giao thức MCP": page_mcp,
+        "🤖 7. Multi-Agent": page_a2a
     }
     
     selection = st.sidebar.radio("CHỌN PHẦN BÁO CÁO:", list(pages.keys()), label_visibility="collapsed")
     
     st.sidebar.markdown("---")
-    st.sidebar.caption("👨‍🎓 *Sinh viên thực hiện: Đỗ Khắc Gia Khoa (FTH00042)*\n\n📚 *Môn: Program with Python*")
+    st.sidebar.caption("👨‍🎓 **Đỗ Khắc Gia Khoa**\n\n🔹 *MSSV: FTH00042*\n\n📚 *Program with Python*")
     
     pages[selection]()
 
