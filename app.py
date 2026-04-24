@@ -6,6 +6,7 @@ import seaborn as sns
 from sklearn.linear_model import LinearRegression
 import requests
 import time
+import io
 
 # ==========================================
 # CẤU HÌNH TRANG
@@ -86,7 +87,7 @@ def page_pandas():
         st.code("import pandas as pd\n# Gom nhóm dữ liệu và tính tổng doanh thu theo khu vực\nbao_cao = df.groupby('Khu vực')['Doanh thu'].sum()", language="python")
 
     with tab2:
-        st.markdown("### 🎯 Demo: Làm sạch và Gom nhóm dữ liệu")
+        st.markdown("### 🎯 Demo 1: Làm sạch và Gom nhóm dữ liệu")
         st.write("Mô phỏng quá trình xử lý một tập dữ liệu kinh doanh bị lỗi (chứa giá trị `NaN`). Chương trình sẽ làm sạch dữ liệu và thống kê tổng doanh thu.")
         
         df_raw = pd.DataFrame({
@@ -114,6 +115,51 @@ def page_pandas():
                 with c2:
                     st.info("📊 Báo cáo Gom nhóm (Groupby):")
                     st.dataframe(summary, use_container_width=True)
+                    
+        st.divider()
+        
+        st.markdown("### 🎯 Demo 2: Xử lý file Excel Thực tế")
+        st.write("Giảng viên có thể tải lên một file Excel (`.xlsx`) hoặc CSV để thuật toán Pandas phân tích trực tiếp. Hoặc có thể tải file mẫu bên dưới để test.")
+        
+        # Nút tải file mẫu
+        sample_data = pd.DataFrame({
+            "Sản Phẩm": ["Laptop", "Chuột", "Bàn Phím", "Màn hình", "Tai nghe", "Loa Bluetooth", "Webcam"],
+            "Doanh Số": [120, 500, 300, 80, 200, 150, 90],
+            "Giá Bán": [15000000, 200000, 500000, 3000000, 800000, 600000, 400000]
+        })
+        buffer = io.BytesIO()
+        with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
+            sample_data.to_excel(writer, index=False)
+        
+        st.download_button(
+            label="⬇️ Tải file Excel Mẫu (Sample.xlsx)",
+            data=buffer.getvalue(),
+            file_name="Sample.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
+        
+        # Upload file và xử lý
+        uploaded_file = st.file_uploader("Upload file Excel/CSV để xử lý:", type=["xlsx", "csv"])
+        if uploaded_file is not None:
+            try:
+                if uploaded_file.name.endswith('.csv'):
+                    df_user = pd.read_csv(uploaded_file)
+                else:
+                    df_user = pd.read_excel(uploaded_file)
+                
+                st.success(f"Đọc file `{uploaded_file.name}` thành công!")
+                
+                # Tính toán thêm một cột mới
+                if 'Doanh Số' in df_user.columns and 'Giá Bán' in df_user.columns:
+                    df_user['Tổng Thu'] = df_user['Doanh Số'] * df_user['Giá Bán']
+                    
+                st.write("🔍 **Dữ liệu sau khi đọc (Có tự động tính thêm cột Tổng Thu nếu hợp lệ):**")
+                st.dataframe(df_user, use_container_width=True)
+                
+                st.write("📊 **Thống kê mô tả (Descriptive Statistics) tự động:**")
+                st.dataframe(df_user.describe(), use_container_width=True)
+            except Exception as e:
+                st.error(f"Lỗi khi xử lý file: {e}")
 
 def page_visualization():
     st.title("3. Trực quan hóa: Matplotlib & Seaborn")
