@@ -25,14 +25,14 @@ def page_home():
     with col1:
         st.markdown("""
         Chào mừng bạn đến với **Cổng thông tin báo cáo tương tác thế hệ mới**. 
-        Dự án này được thiết kế đột phá, chuyển đổi các văn bản báo cáo truyền thống thành một trang web giáo dục có thể **thực thi mã nguồn và tương tác trực tiếp**.
+        Dự án này được thiết kế đột phá, chuyển đổi các văn bản báo cáo truyền thống thành một cổng tài liệu trực tuyến có thể **thực thi mã nguồn và tương tác trực tiếp**.
         
         #### 🔍 Nội dung chính bao gồm:
         1. **Thư viện Khoa học Dữ liệu (Data Stack):** NumPy, Pandas, Matplotlib, Seaborn.
         2. **Thư viện Lõi & Học Máy (Core & ML):** Scikit-Learn, Requests.
         3. **Kiến trúc Trí tuệ Nhân tạo (Advanced AI):** Giao thức kết nối MCP và Hệ thống Đa tác nhân (A2A).
         """)
-        st.info("👉 **Hướng dẫn sử dụng:** Hãy sử dụng thanh Menu bên trái để chuyển đổi giữa các bài học. Trong mỗi bài học, hãy chuyển qua lại giữa Tab **Báo cáo Lý thuyết** và Tab **Chương trình Demo** để trải nghiệm.")
+        st.info("👉 **Hướng dẫn sử dụng:** Hãy sử dụng thanh Menu bên trái để chuyển đổi giữa các chuyên đề. Trong mỗi chuyên đề, hãy chuyển qua lại giữa Tab **Báo cáo Lý thuyết** và Tab **Chương trình Demo** để trải nghiệm.")
         
     with col2:
         st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80", use_container_width=True)
@@ -284,7 +284,7 @@ def page_a2a():
             st.success("✅ **Kết quả Workflow:** Phối hợp nhịp nhàng, tốc độ cao, không xảy ra ảo giác sai sót dữ liệu.")
 
 def main():
-    st.sidebar.title("📑 Danh mục Bài học")
+    st.sidebar.title("📑 Mục lục Nghiên cứu")
     st.sidebar.markdown("---")
     
     pages = {
@@ -298,7 +298,7 @@ def main():
         "🤖 7. Kiến trúc A2A": page_a2a
     }
     
-    selection = st.sidebar.radio("CHỌN BÀI HỌC:", list(pages.keys()), label_visibility="collapsed")
+    selection = st.sidebar.radio("CHỌN CHUYÊN ĐỀ:", list(pages.keys()), label_visibility="collapsed")
     
     st.sidebar.markdown("---")
     st.sidebar.caption("👨‍💻 *Built with Streamlit & AI*")
