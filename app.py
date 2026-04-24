@@ -349,7 +349,7 @@ def main():
     selection = st.sidebar.radio("CHỌN PHẦN BÁO CÁO:", list(pages.keys()), label_visibility="collapsed")
     
     st.sidebar.markdown("---")
-    st.sidebar.caption("👨‍🎓 *Sinh viên thực hiện: [Điền tên của bạn]*\n\n📚 *Môn: Program with Python*")
+    st.sidebar.caption("👨‍🎓 *Sinh viên thực hiện: Đỗ Khắc Gia Khoa (FTH00042)*\n\n📚 *Môn: Program with Python*")
     
     pages[selection]()
 
