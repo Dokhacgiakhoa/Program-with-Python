@@ -10,29 +10,29 @@ import time
 # ==========================================
 # CẤU HÌNH TRANG
 # ==========================================
-st.set_page_config(page_title="Báo cáo Nghiên cứu Python & AI", page_icon="✨", layout="wide")
+st.set_page_config(page_title="Assignment - Program with Python", page_icon="📝", layout="wide")
 
 # ==========================================
 # CÁC HÀM HIỂN THỊ NỘI DUNG TỪNG TRANG
 # ==========================================
 
 def page_home():
-    st.title("✨ Cổng Thông Tin & Báo Cáo Tương Tác")
-    st.markdown("### 🎓 Ứng dụng Python trong Khoa học Dữ liệu & AI")
+    st.title("📝 Báo cáo Assignment Tương tác")
+    st.markdown("### 🎓 Môn học: Program with Python")
     st.divider()
     
     col1, col2 = st.columns([1.5, 1])
     with col1:
         st.markdown("""
-        Chào mừng bạn đến với **Cổng thông tin báo cáo tương tác thế hệ mới**. 
-        Dự án này được thiết kế đột phá, chuyển đổi các văn bản báo cáo truyền thống thành một cổng tài liệu trực tuyến có thể **thực thi mã nguồn và tương tác trực tiếp**.
+        Chào mừng Giảng viên đến với **Báo cáo Assignment tương tác** được xây dựng bằng framework Streamlit. 
+        Dự án này được thực hiện nhằm mục đích tổng hợp lý thuyết và demo thực hành các kiến thức trọng tâm của môn học **Program with Python**.
         
-        #### 🔍 Nội dung chính bao gồm:
-        1. **Thư viện Khoa học Dữ liệu (Data Stack):** NumPy, Pandas, Matplotlib, Seaborn.
-        2. **Thư viện Lõi & Học Máy (Core & ML):** Scikit-Learn, Requests.
-        3. **Kiến trúc Trí tuệ Nhân tạo (Advanced AI):** Giao thức kết nối MCP và Hệ thống Đa tác nhân (A2A).
+        #### 🔍 Nội dung báo cáo bao gồm:
+        1. **Thư viện Khoa học Dữ liệu cơ bản:** Xử lý và trực quan hóa dữ liệu với NumPy, Pandas, Matplotlib, Seaborn.
+        2. **Ứng dụng nâng cao:** Xây dựng mô hình Học máy cơ bản (Scikit-Learn) và Giao tiếp mạng (Requests).
+        3. **Nghiên cứu thêm (Advanced AI):** Tìm hiểu cấu trúc hoạt động của giao thức MCP và Hệ thống Đa tác nhân (A2A).
         """)
-        st.info("👉 **Hướng dẫn sử dụng:** Hãy sử dụng thanh Menu bên trái để chuyển đổi giữa các chuyên đề. Trong mỗi chuyên đề, hãy chuyển qua lại giữa Tab **Báo cáo Lý thuyết** và Tab **Chương trình Demo** để trải nghiệm.")
+        st.info("👉 **Hướng dẫn chấm điểm:** Giảng viên có thể sử dụng thanh Menu bên trái để điều hướng. Tại mỗi phần, hệ thống được chia thành 2 Tab: **Báo cáo Lý thuyết** (Phân tích, code mẫu) và **Chương trình Demo** (Chạy thử nghiệm tương tác trực tiếp).")
         
     with col2:
         st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80", use_container_width=True)
@@ -43,21 +43,21 @@ def page_numpy():
     
     with tab1:
         st.markdown("""
-        **NumPy** là thư viện toán học nền tảng, được coi là trái tim của hệ sinh thái Khoa học dữ liệu trong Python.
-        *   **Cấu trúc cốt lõi (`ndarray`):** Là mảng N-chiều được tối ưu hóa siêu cấp. Các phần tử được lưu trữ liền kề nhau trên RAM và được xử lý bằng ngôn ngữ C bên dưới, giúp tốc độ siêu nhanh.
-        *   **Vectorization (Véc-tơ hóa):** Khả năng thực hiện tính toán trên toàn bộ mảng cùng một lúc, loại bỏ hoàn toàn việc sử dụng các vòng lặp `for` chậm chạp của Python.
-        *   **Broadcasting:** Cơ chế thông minh tự động mở rộng và cân bằng kích thước giữa các mảng khác nhau để thực hiện phép toán.
+        **NumPy** là thư viện cốt lõi hỗ trợ tính toán mảng và ma trận nhiều chiều trong Python.
+        *   **Cấu trúc dữ liệu (`ndarray`):** Là mảng N-chiều tối ưu bộ nhớ. Do các phần tử được lưu trữ liền kề nhau và được xử lý bằng C/C++ ở tầng thấp, NumPy cho hiệu suất tính toán vượt trội so với list thông thường của Python.
+        *   **Vectorization (Véc-tơ hóa):** Cho phép thực hiện phép toán trên toàn bộ mảng mà không cần sử dụng vòng lặp `for`, giúp code ngắn gọn và thực thi nhanh hơn.
+        *   **Broadcasting:** Cơ chế cho phép thực hiện các phép toán giữa các mảng có kích thước (shape) khác nhau.
         """)
-        st.code("import numpy as np\narr = np.array([1, 2, 3])\n# Vectorization: Nhân toàn bộ mảng cho 10\nprint(arr * 10)", language="python")
+        st.code("import numpy as np\narr = np.array([1, 2, 3])\n# Vectorization: Nhân toàn bộ phần tử trong mảng cho 10\nprint(arr * 10)", language="python")
 
     with tab2:
-        st.markdown("### 🎯 Trải nghiệm Vectorization")
-        st.write("Sinh ra một ma trận dữ liệu ngẫu nhiên và áp dụng phép tính véc-tơ siêu tốc (nhân toàn bộ cho 10).")
+        st.markdown("### 🎯 Demo: Tính toán Véc-tơ hóa (Vectorization)")
+        st.write("Chương trình tạo ra một ma trận dữ liệu ngẫu nhiên dựa trên đầu vào và áp dụng phép nhân ma trận.")
         col1, col2 = st.columns(2)
         with col1:
-            rows = st.number_input("Chọn số dòng (Rows):", 1, 10, 3)
+            rows = st.number_input("Nhập số dòng (Rows):", 1, 10, 3)
         with col2:
-            cols = st.number_input("Chọn số cột (Columns):", 1, 10, 3)
+            cols = st.number_input("Nhập số cột (Columns):", 1, 10, 3)
             
         if st.button("🚀 Khởi tạo & Tính toán Ma trận", type="primary"):
             matrix = np.random.randint(1, 10, size=(rows, cols))
@@ -75,39 +75,41 @@ def page_pandas():
     
     with tab1:
         st.markdown("""
-        Nếu NumPy làm việc với mảng số học, **Pandas** là công cụ "cứu cánh" chuyên trị dữ liệu thực tế, được mệnh danh là "Excel của lập trình viên".
-        *   **Cấu trúc dữ liệu:** `Series` (Mảng 1 chiều có gắn index) và `DataFrame` (Bảng 2 chiều, tương tự bảng CSDL hay Excel).
-        *   **Nhiệm vụ chính:**
-            *   *Data Cleaning (Làm sạch):* Xử lý cực tốt các ô trống, giá trị lỗi (`fillna()`, `dropna()`).
-            *   *Data Wrangling (Nhào nặn):* Gom nhóm thống kê (`groupby()`), Gộp nhiều bảng lại với nhau (`merge()`, `join`), Tạo báo cáo đa chiều (`pivot_table()`).
+        **Pandas** là thư viện mạnh mẽ nhất để phân tích và thao tác với dữ liệu dạng bảng (tương tự SQL hoặc Excel).
+        *   **Cấu trúc dữ liệu:** 
+            *   `Series`: Mảng 1 chiều có gắn nhãn (index).
+            *   `DataFrame`: Bảng 2 chiều có cấu trúc cột và dòng.
+        *   **Tính năng chính:**
+            *   *Làm sạch dữ liệu (Data Cleaning):* Xử lý các giá trị bị thiếu (`NaN`) bằng hàm `fillna()` hoặc `dropna()`.
+            *   *Thao tác dữ liệu:* Lọc, gom nhóm (`groupby()`), kết hợp bảng (`merge()`, `join`).
         """)
         st.code("import pandas as pd\n# Gom nhóm dữ liệu và tính tổng doanh thu theo khu vực\nbao_cao = df.groupby('Khu vực')['Doanh thu'].sum()", language="python")
 
     with tab2:
-        st.markdown("### 🎯 Trải nghiệm Data Cleaning & Grouping")
-        st.write("Dưới đây là tập dữ liệu kinh doanh thô đang bị lỗi (bị thiếu dữ liệu - `NaN`). Hãy chạy Data Pipeline để Pandas tự động dọn dẹp và báo cáo.")
+        st.markdown("### 🎯 Demo: Làm sạch và Gom nhóm dữ liệu")
+        st.write("Mô phỏng quá trình xử lý một tập dữ liệu kinh doanh bị lỗi (chứa giá trị `NaN`). Chương trình sẽ làm sạch dữ liệu và thống kê tổng doanh thu.")
         
         df_raw = pd.DataFrame({
             'Khu_Vực': ['Miền Bắc', 'Miền Nam', 'Miền Bắc', 'Miền Nam', 'Miền Trung'],
             'Doanh_Thu_Triệu': [120, 250, np.nan, 310, 150]
         })
-        st.warning("📉 **Dữ liệu thô ban đầu (Lỗi NaN ở dòng 2):**")
+        st.warning("📉 **Dữ liệu ban đầu (Cố tình tạo lỗi NaN ở dòng 2):**")
         st.dataframe(df_raw, use_container_width=True)
         
-        if st.button("🚀 Thực thi Data Pipeline", type="primary"):
-            with st.spinner("Đang chạy thuật toán làm sạch và gom nhóm..."):
+        if st.button("🚀 Chạy thuật toán xử lý dữ liệu", type="primary"):
+            with st.spinner("Đang làm sạch và gom nhóm..."):
                 time.sleep(0.5)
-                # Thuật toán điền NaN bằng giá trị trung bình
+                # Xử lý NaN bằng cách lấy giá trị trung bình
                 mean_val = df_raw['Doanh_Thu_Triệu'].mean()
                 df_clean = df_raw.copy()
                 df_clean['Doanh_Thu_Triệu'] = df_clean['Doanh_Thu_Triệu'].fillna(mean_val)
                 
-                # Thuật toán gom nhóm
+                # Thống kê bằng groupby
                 summary = df_clean.groupby('Khu_Vực').sum().reset_index()
                 
                 c1, c2 = st.columns(2)
                 with c1:
-                    st.success("✅ Dữ liệu đã được làm sạch:")
+                    st.success("✅ Dữ liệu sau khi xử lý NaN:")
                     st.dataframe(df_clean, use_container_width=True)
                 with c2:
                     st.info("📊 Báo cáo Gom nhóm (Groupby):")
@@ -119,65 +121,67 @@ def page_visualization():
     
     with tab1:
         st.markdown("""
-        Số liệu sẽ rất khô khan nếu không được vẽ thành biểu đồ. Chúng ta có 2 công cụ đắc lực:
-        *   **Matplotlib:** Gốc rễ của trực quan hóa trong Python. Cho phép bạn can thiệp vào từng pixel, vẽ mọi loại biểu đồ nhưng cú pháp khá dài và phức tạp.
-        *   **Seaborn:** Nâng cấp từ Matplotlib. Cung cấp các giao diện (themes) tuyệt đẹp và khả năng vẽ các biểu đồ thống kê phức tạp (ví dụ: Heatmap, Violin plot) chỉ với 1 dòng code duy nhất.
+        Trong Python, trực quan hóa dữ liệu thường sử dụng hai thư viện cơ bản và nâng cao:
+        *   **Matplotlib:** Cung cấp các công cụ đồ họa mức thấp. Khả năng tùy biến cực cao, có thể vẽ biểu đồ đường (line), cột (bar), tròn (pie), phân tán (scatter), v.v.
+        *   **Seaborn:** Được xây dựng dựa trên Matplotlib. Cung cấp API bậc cao hơn, tối ưu hóa để vẽ các biểu đồ thống kê phức tạp (ví dụ: Heatmap, Violin plot) với giao diện mặc định chuyên nghiệp hơn và code ngắn gọn hơn.
         """)
-        st.code('import seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Vẽ biểu đồ phân phối với đường cong mật độ (KDE)\nsns.histplot(data, kde=True)\nplt.show()', language="python")
+        st.code('import seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Vẽ biểu đồ mật độ phân phối (KDE)\nsns.histplot(data, kde=True)\nplt.show()', language="python")
 
     with tab2:
-        st.markdown("### 🎯 Trải nghiệm Đồ họa Thống kê")
-        st.write("Tạo một tập dữ liệu phân phối ngẫu nhiên và dùng Seaborn để vẽ biểu đồ mật độ chuẩn.")
-        if st.button("🚀 Khởi tạo Dữ liệu & Vẽ Biểu đồ", type="primary"):
-            with st.spinner("Đang render Engine đồ họa..."):
+        st.markdown("### 🎯 Demo: Vẽ biểu đồ phân phối chuẩn")
+        st.write("Sử dụng thư viện Seaborn để trực quan hóa dữ liệu ngẫu nhiên (1000 phần tử) dưới dạng đồ thị Histogram kết hợp đường KDE.")
+        if st.button("🚀 Khởi tạo Dữ liệu ngẫu nhiên & Vẽ đồ thị", type="primary"):
+            with st.spinner("Đang khởi tạo đồ họa..."):
                 data = np.random.randn(1000)
-                sns.set_style("darkgrid") # Tương thích tốt với cả giao diện tối/sáng
+                sns.set_style("darkgrid")
                 fig, ax = plt.subplots(figsize=(8, 4))
                 
-                # Vẽ biểu đồ với Seaborn
+                # Vẽ biểu đồ
                 sns.histplot(data, kde=True, ax=ax, color="#3B82F6", edgecolor="white")
                 ax.set_title("Biểu đồ Phân phối Chuẩn (Normal Distribution)", fontweight="bold", pad=15)
-                ax.set_xlabel("Giá trị ngẫu nhiên")
-                ax.set_ylabel("Tần suất xuất hiện")
-                sns.despine() # Làm sạch viền thừa
+                ax.set_xlabel("Giá trị")
+                ax.set_ylabel("Tần suất")
+                sns.despine() 
                 
                 st.pyplot(fig)
 
 def page_sklearn():
-    st.title("4. Học máy: Scikit-Learn")
+    st.title("4. Học máy cơ bản: Scikit-Learn")
     tab1, tab2 = st.tabs(["📖 Báo cáo Lý thuyết", "⚙️ Chương trình Demo"])
     
     with tab1:
         st.markdown("""
-        **Scikit-Learn** là "trường học" của mọi kỹ sư AI, thư viện nền tảng số một cho Machine Learning truyền thống.
-        *   **Thuật toán phong phú:** Từ Hồi quy (Linear Regression), Phân loại (Random Forest, SVM) cho đến Gom cụm (K-Means).
-        *   **Tiền xử lý & Đánh giá:** Cung cấp đầy đủ công cụ chuẩn hóa dữ liệu (StandardScaler) và tính toán độ chính xác.
-        *   **Tính nhất quán tuyệt vời:** Dù thuật toán có phức tạp đến đâu, bạn cũng chỉ cần gọi 2 hàm quen thuộc là `model.fit()` (Học dữ liệu) và `model.predict()` (Dự đoán).
+        **Scikit-Learn** là thư viện tiêu chuẩn dùng cho Machine Learning (Học máy) trong Python.
+        *   **Chức năng:** Cung cấp các thuật toán phân loại (Classification), hồi quy (Regression), gom cụm (Clustering) và giảm chiều dữ liệu (Dimensionality reduction).
+        *   **Quy trình chuẩn hóa:** Scikit-Learn định nghĩa một quy trình nhất quán đối với mọi thuật toán:
+            1. Khởi tạo mô hình (Ví dụ: `model = LinearRegression()`).
+            2. Huấn luyện mô hình với dữ liệu bằng hàm `model.fit(X, y)`.
+            3. Đưa ra dự đoán bằng hàm `model.predict(X_new)`.
         """)
-        st.code("from sklearn.linear_model import LinearRegression\nmodel = LinearRegression()\nmodel.fit(X_train, y_train) # Bắt đầu học\nprediction = model.predict(X_new) # Dự đoán", language="python")
+        st.code("from sklearn.linear_model import LinearRegression\nmodel = LinearRegression()\nmodel.fit(X_train, y_train) # Huấn luyện\nprediction = model.predict(X_test) # Dự đoán", language="python")
 
     with tab2:
-        st.markdown("### 🎯 Huấn luyện Trí tuệ Nhân tạo (AI)")
-        st.write("Sử dụng thuật toán Hồi quy tuyến tính (Linear Regression) để AI học cách định giá nhà đất dựa trên diện tích.")
+        st.markdown("### 🎯 Demo: Mô hình Hồi quy tuyến tính (Linear Regression)")
+        st.write("Ứng dụng thuật toán Học máy để dự đoán giá nhà dựa trên diện tích. Mô hình sẽ được huấn luyện trực tiếp trên một tập dữ liệu giả lập (Mock data).")
         
-        area = st.slider("📐 Hãy chọn diện tích căn nhà (m²):", 30, 200, 75)
+        area = st.slider("📐 Nhập diện tích căn nhà cần dự đoán (m²):", 30, 200, 75)
         
-        if st.button("🚀 Chạy Mô hình AI & Dự đoán", type="primary"):
-            with st.spinner("AI đang học từ dữ liệu lịch sử..."):
+        if st.button("🚀 Huấn luyện Mô hình & Dự đoán", type="primary"):
+            with st.spinner("Đang huấn luyện mô hình (Training)..."):
                 time.sleep(0.5)
                 # Dữ liệu đào tạo giả lập
-                X = np.array([30, 50, 70, 90, 110, 150]).reshape(-1, 1)
-                y = np.array([1.2, 2.0, 2.9, 3.8, 4.5, 6.0]) # Tỷ VNĐ
+                X = np.array([30, 50, 70, 90, 110, 150]).reshape(-1, 1) # Diện tích
+                y = np.array([1.2, 2.0, 2.9, 3.8, 4.5, 6.0]) # Giá trị (Tỷ VNĐ)
                 
                 # Khởi tạo và huấn luyện
                 model = LinearRegression()
                 model.fit(X, y)
                 
-                # Dự đoán kết quả mới
+                # Dự đoán
                 pred = model.predict([[area]])[0]
                 
-                st.metric(label="🏠 Giá nhà định giá bởi AI", value=f"{pred:.2f} Tỷ VNĐ", delta="Độ tin cậy cao")
-                st.info("💡 **Giải thích:** AI đã nội suy được rằng hệ số giá nhà tăng đều theo diện tích và đưa ra kết quả tương ứng cho con số bạn chọn.")
+                st.metric(label="🏠 Giá nhà mô hình định giá được", value=f"{pred:.2f} Tỷ VNĐ", delta="Dự đoán thành công")
+                st.info("💡 **Giải thích:** Thuật toán Linear Regression đã tìm ra một đường thẳng phù hợp nhất đi qua các điểm dữ liệu mẫu để biểu diễn mối tương quan tuyến tính giữa diện tích và giá nhà.")
 
 def page_requests():
     st.title("5. Giao tiếp Mạng: Requests")
@@ -185,57 +189,55 @@ def page_requests():
     
     with tab1:
         st.markdown("""
-        **Requests** được thế giới lập trình mệnh danh là *"HTTP for Humans"* (Giao thức HTTP làm ra dành cho con người).
-        *   **Khái niệm:** Thư viện không thể thiếu giúp Python kết nối Internet, cào dữ liệu web (Web Scraping) hoặc tương tác với REST API.
-        *   **Ưu điểm:** Khắc phục hoàn toàn sự phức tạp kinh khủng của thư viện `urllib` mặc định trong Python. Nó có khả năng tự động xử lý và chuyển đổi chuỗi mã hóa JSON thành định dạng Dictionary quen thuộc của Python.
+        **Requests** là thư viện Python được sử dụng rộng rãi để thực hiện các yêu cầu HTTP (HTTP Requests).
+        *   **Vai trò:** Cho phép chương trình Python đóng vai trò như một Client, gửi dữ liệu đi hoặc lấy dữ liệu về từ các API trên Internet.
+        *   **Ưu điểm so với `urllib` mặc định:** Cú pháp thân thiện, đơn giản hơn. Tích hợp sẵn bộ giải mã JSON (`response.json()`), tự động thêm các Headers thông dụng.
         """)
-        st.code("import requests\n# Lấy dữ liệu từ Github\nres = requests.get('https://api.github.com')\nprint(res.json())", language="python")
+        st.code("import requests\n# Gửi GET request đến REST API\nresponse = requests.get('https://api.github.com')\n# Parse dữ liệu JSON\nprint(response.json())", language="python")
 
     with tab2:
-        st.markdown("### 🎯 Gọi API Thời gian thực (Real-time)")
-        st.write("Chương trình này sẽ gửi lệnh đến Server của sàn giao dịch tiền ảo thế giới để lấy tỷ giá mới nhất.")
+        st.markdown("### 🎯 Demo: Gọi REST API Thực tế")
+        st.write("Chương trình sẽ thực hiện HTTP GET Request tới Public API của sàn Coindesk để lấy dữ liệu tỷ giá Bitcoin mới nhất theo thời gian thực.")
         
-        if st.button("🚀 Cập nhật Giá Bitcoin ngay lúc này", type="primary"):
-            with st.spinner("Đang gửi HTTP GET request ra Internet..."):
+        if st.button("🚀 Fetch API Tỷ giá Bitcoin", type="primary"):
+            with st.spinner("Đang thực hiện Request..."):
                 try:
                     res = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-                    data = res.json() # Dịch ngược JSON tự động
+                    data = res.json() # Phân tích JSON
                     
                     price = data['bpi']['USD']['rate']
                     time_updated = data['time']['updated']
                     
-                    # Trình bày giao diện Dashboard
                     c1, c2 = st.columns(2)
-                    c1.metric(label="💰 Tỷ giá Bitcoin (Theo USD)", value=f"${price}", delta="Live API")
-                    c2.metric(label="⏱️ Dữ liệu chốt lúc", value=time_updated)
+                    c1.metric(label="💰 Tỷ giá Bitcoin (USD)", value=f"${price}", delta="Dữ liệu Real-time")
+                    c2.metric(label="⏱️ Cập nhật lúc", value=time_updated)
                     
-                    st.success("Bóc tách dữ liệu JSON thành công từ API!")
+                    st.success("HTTP Request trả về Status 200 OK. Đã parse JSON thành công.")
                 except Exception as e:
-                    st.error("Lỗi khi kết nối mạng. Hãy đảm bảo bạn có Internet.")
+                    st.error("Ngoại lệ xảy ra khi kết nối API. Vui lòng kiểm tra Internet.")
 
 def page_mcp():
-    st.title("6. Giao thức MCP (Model Context Protocol)")
+    st.title("6. Nghiên cứu: Giao thức MCP")
     tab1, tab2 = st.tabs(["📖 Báo cáo Lý thuyết", "⚙️ Chương trình Demo"])
     
     with tab1:
         st.markdown("""
-        **MCP** là phát minh đột phá nhất năm 2024 của hãng Anthropic, được cộng đồng ví như *"Cổng USB-C của ngành Trí tuệ Nhân tạo"*.
+        **MCP (Model Context Protocol)** là một tiêu chuẩn giao tiếp mã nguồn mở nhằm mục đích kết nối an toàn giữa các mô hình ngôn ngữ lớn (LLM) và các nguồn dữ liệu cục bộ.
         
-        *   **Nỗi đau của lập trình viên:** Trước đây các AI (như ChatGPT) bị nhốt trong một hộp đen. Để AI đọc được file máy tính hay kết nối Github, lập trình viên phải viết code Custom riêng biệt rất cực khổ.
-        *   **Kiến trúc Chuẩn hóa của MCP:** Cung cấp chuẩn giao tiếp **JSON-RPC** an toàn tuyệt đối.
-            *   Máy chủ của bạn (Local) chạy một `MCP Server`.
-            *   Mô hình AI đóng vai trò `MCP Client`.
-        *   **3 Trụ cột MCP cung cấp cho AI:**
-            1. **Resources:** Quyền đọc dữ liệu nội bộ (VD: Đọc file log hệ thống).
-            2. **Tools:** Quyền hành động thực tế (VD: Chạy lệnh git, tạo file, truy vấn SQL).
-            3. **Prompts:** Gợi ý lệnh được tinh chỉnh sẵn cho người dùng.
+        *   **Vấn đề giải quyết:** Theo mặc định, LLM bị cô lập và không có quyền truy cập vào hệ thống file hoặc cơ sở dữ liệu của người dùng.
+        *   **Cơ chế hoạt động:** MCP thiết lập một kiến trúc Client-Server thông qua giao thức **JSON-RPC**.
+            *   `MCP Server` được chạy trên máy người dùng, đóng vai trò cung cấp dữ liệu an toàn.
+            *   `MCP Client` (ví dụ: Claude Desktop) sẽ giao tiếp và yêu cầu từ Server.
+        *   **Thành phần chính:**
+            1. **Resources:** Định nghĩa dữ liệu (File, Database) mà LLM có quyền đọc.
+            2. **Tools:** Cung cấp các hàm (Function) để LLM có thể sử dụng (ví dụ: gọi API, truy vấn SQL) thông qua Tool-Calling.
         """)
 
     with tab2:
-        st.markdown("### 🎯 Mô phỏng Luồng Giao tiếp bảo mật")
-        st.info("Kịch bản: LLM cần đếm số lượng người dùng trong Database nội bộ, nhưng nó không có quyền kết nối trực tiếp. Nó phải mượn tay MCP Server thông qua lệnh `tools/call`.")
+        st.markdown("### 🎯 Demo: Mô phỏng Tool-Calling trong MCP")
+        st.info("Kịch bản: Người dùng yêu cầu LLM đếm số lượng bản ghi trong cơ sở dữ liệu. LLM sẽ gửi Request gọi hàm qua JSON-RPC thay vì tự động kết nối DB.")
         
-        if st.button("🚀 Khởi chạy Luồng MCP Tool-Calling", type="primary"):
+        if st.button("🚀 Chạy Mô phỏng Giao tiếp RPC", type="primary"):
             c1, c2 = st.columns(2)
             with c1:
                 st.markdown("#### 📤 LLM Request (Client)")
@@ -245,63 +247,63 @@ def page_mcp():
             with c2:
                 st.markdown("#### 📥 MCP Server (Response)")
                 time.sleep(1.5)
-                st.write("*(Server thực thi an toàn trên máy Local và trả kết quả về)*")
-                st.code('{\n  "result": {\n    "content": [\n      {"text": "Có 1054 User."}\n    ]\n  }\n}', language='json')
-            st.success("✅ **Luồng an toàn:** LLM lấy được dữ liệu Private cục bộ mà không phá vỡ rào cản bảo mật nào.")
+                st.write("*(Thực thi truy vấn cục bộ và trả kết quả dưới dạng văn bản an toàn)*")
+                st.code('{\n  "result": {\n    "content": [\n      {"text": "Count: 1054 Users"}\n    ]\n  }\n}', language='json')
+            st.success("✅ Mô phỏng hoàn tất: LLM nhận được thông tin thông qua Server trung gian mà không xâm phạm hệ thống.")
 
 def page_a2a():
-    st.title("7. Kiến trúc A2A (Agent-to-Agent)")
+    st.title("7. Nghiên cứu: Kiến trúc Multi-Agent (A2A)")
     tab1, tab2 = st.tabs(["📖 Báo cáo Lý thuyết", "⚙️ Chương trình Demo"])
     
     with tab1:
         st.markdown("""
-        **Kiến trúc Đa tác nhân (Multi-Agent System)** biến AI từ một "Trợ lý ảo đơn độc" thành "Cả một tập đoàn ảo".
+        **Kiến trúc Đa tác nhân (Multi-Agent System / A2A)** là một phương pháp thiết kế phần mềm AI, trong đó nhiều Đặc vụ (Agent) độc lập tương tác với nhau để giải quyết một bài toán phức tạp.
         
-        *   **Khái niệm:** Một hệ thống chia bài toán lớn cho nhiều Agent (Đặc vụ AI). Mỗi Agent được thiết lập một `Role` (Vai trò) và cấp các `Tool` (Công cụ) riêng biệt.
-        *   **Vì sao hiệu quả hơn 1 LLM siêu lớn?**
-            *   *Giảm ảo giác:* Mỗi Agent tập trung làm 1 việc duy nhất (VD: Agent A chỉ chuyên viết code, Agent B chỉ chuyên kiểm lỗi).
-            *   *Cơ chế tự sửa sai (Self-healing):* Các Agent có thể tranh luận, bắt lỗi chéo và phản biện lẫn nhau cho đến khi ra kết quả chính xác 100%.
-        *   **Ứng dụng:** Các framework nổi tiếng như CrewAI, LangGraph, AutoGen đang cách mạng hóa ngành Software Engineering khi tạo ra các "công ty phần mềm" chỉ gồm AI.
+        *   **Khái niệm:** Thay vì sử dụng một mô hình LLM duy nhất xử lý toàn bộ Prompt, hệ thống chia nhỏ tác vụ. Mỗi Agent sẽ được gán một **Role** (Vai trò), một **Goal** (Mục tiêu) và các **Tools** (Công cụ) cụ thể để làm việc.
+        *   **Đặc điểm nổi bật:**
+            *   *Giảm tỷ lệ Hallucination (Ảo giác):* Do mỗi Agent chỉ xử lý một nhiệm vụ hẹp và chuyên biệt.
+            *   *Quy trình làm việc (Workflow):* Các Agent có thể hoạt động theo chuỗi (Sequential) hoặc theo phân cấp (Hierarchical - có Quản lý và Nhân viên).
+        *   **Framework phổ biến:** LangGraph, CrewAI, AutoGen.
         """)
 
     with tab2:
-        st.markdown("### 🎯 Mô phỏng Hoạt động Phân cấp (Hierarchical)")
-        st.write("Xem cách một Manager Agent điều động cấp dưới làm việc như con người.")
+        st.markdown("### 🎯 Demo: Mô phỏng Luồng công việc Đa tác nhân")
+        st.write("Mô phỏng kiến trúc Phân cấp (Hierarchical): Manager Agent nhận lệnh và phân chia công việc cho Analyst Agent và Designer Agent.")
         
-        if st.button("🚀 Khởi chạy Swarm Agent", type="primary"):
-            with st.status("📡 Đang giám sát luồng giao tiếp Đa tác nhân...", expanded=True):
-                st.write("👤 **User Task:** *'Hãy thống kê doanh thu và vẽ báo cáo.'*")
+        if st.button("🚀 Khởi chạy Luồng Multi-Agent", type="primary"):
+            with st.status("📡 Đang thực thi Workflow...", expanded=True):
+                st.write("👤 **Người dùng:** *'Hãy thống kê và vẽ biểu đồ doanh thu.'*")
                 time.sleep(1)
-                st.write("🧠 **[Manager Agent]:** Đã nhận lệnh. Lập kế hoạch và điều động `Data Analyst` và `Designer`.")
+                st.write("⚙️ **[Manager Agent]:** Phân tích yêu cầu. Khởi tạo tác vụ cho nhánh Data và nhánh Design.")
                 time.sleep(1)
                 st.markdown("---")
-                st.write("🧑‍💻 **[Analyst Agent]:** (Sử dụng Python Tool) Truy cập CSDL. Tổng hợp doanh thu tăng 15% so với năm ngoái.")
+                st.write("📊 **[Analyst Agent]:** (Thực thi Python Script) -> Tính toán dữ liệu tăng trưởng hoàn tất (+15%).")
                 time.sleep(1.5)
-                st.write("🎨 **[Designer Agent]:** (Nhận data từ Analyst) Đang tạo bản nháp biểu đồ... Hoàn thiện và lưu thành PDF.")
+                st.write("🎨 **[Designer Agent]:** (Nhận dữ liệu) -> Khởi tạo biểu đồ bằng Matplotlib -> Xuất file báo cáo PDF.")
                 time.sleep(1)
                 st.markdown("---")
-                st.write("📢 **[Manager Agent]:** Đóng gói báo cáo PDF và trả về cho User.")
-            st.success("✅ **Kết quả Workflow:** Phối hợp nhịp nhàng, tốc độ cao, không xảy ra ảo giác sai sót dữ liệu.")
+                st.write("⚙️ **[Manager Agent]:** Kiểm duyệt kết quả đầu ra. Trả File báo cáo cuối cùng cho người dùng.")
+            st.success("✅ Output: Hệ thống Multi-Agent xử lý thành công yêu cầu phức tạp theo quy trình tự động.")
 
 def main():
-    st.sidebar.title("📑 Mục lục Nghiên cứu")
+    st.sidebar.title("📑 Mục lục Assignment")
     st.sidebar.markdown("---")
     
     pages = {
-        "🏠 Trang chủ & Tổng quan": page_home,
+        "🏠 Trang bìa & Tổng quan": page_home,
         "🔢 1. Thư viện NumPy": page_numpy,
         "🐼 2. Thư viện Pandas": page_pandas,
-        "📊 3. Matplotlib & Seaborn": page_visualization,
-        "🧠 4. Scikit-Learn (AI)": page_sklearn,
-        "🌐 5. Thư viện Requests": page_requests,
-        "🔌 6. Giao thức MCP": page_mcp,
-        "🤖 7. Kiến trúc A2A": page_a2a
+        "📊 3. Trực quan hóa (Matplotlib)": page_visualization,
+        "🧠 4. Học máy (Scikit-Learn)": page_sklearn,
+        "🌐 5. Giao tiếp mạng (Requests)": page_requests,
+        "🔌 6. Nghiên cứu MCP": page_mcp,
+        "🤖 7. Nghiên cứu Multi-Agent": page_a2a
     }
     
-    selection = st.sidebar.radio("CHỌN CHUYÊN ĐỀ:", list(pages.keys()), label_visibility="collapsed")
+    selection = st.sidebar.radio("CHỌN PHẦN BÁO CÁO:", list(pages.keys()), label_visibility="collapsed")
     
     st.sidebar.markdown("---")
-    st.sidebar.caption("👨‍💻 *Built with Streamlit & AI*")
+    st.sidebar.caption("👨‍🎓 *Sinh viên thực hiện: [Điền tên của bạn]*\n\n📚 *Môn: Program with Python*")
     
     pages[selection]()
 
